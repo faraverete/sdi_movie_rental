@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><movies>
+    <movies id="1">
+        <name>ironman</name>
+        <genre>fi</genre>
+    </movies>
+    <movies id="2">
+        <name>vikings</name>
+        <genre>history</genre>
+    </movies>
+
+<movie id="3"><name>spiderman</name><group>fi</group></movie></movies>

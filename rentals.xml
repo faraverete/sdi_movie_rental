@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<movies>
+    <rental id="1">
+        <movieID>1</movieID>
+        <clientID>3</clientID>
+    </rental>
+    <rental id="2">
+        <movieID>1</movieID>
+        <clientID>3</clientID>
+    </rental>
+    <rental id="3">
+        <movieID>2</movieID>
+        <clientID>3</clientID>
+    </rental>
+    <rental id="4">
+        <movieID>1</movieID>
+        <clientID>2</clientID>
+    </rental>
+</movies>

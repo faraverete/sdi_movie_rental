@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<movies>
+    <client id="1">
+        <name>traian</name>
+    </client>
+    <client id="2">
+        <name>ioana</name>
+    </client>
+    <client id="3">
+        <name>viorel</name>
+    </client>
+    <client id="4">
+        <name>maria</name>
+    </client>
+</movies>
