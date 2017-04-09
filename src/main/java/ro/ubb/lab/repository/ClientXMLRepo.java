@@ -69,7 +69,10 @@ public class ClientXMLRepo extends InMemoryRepository<Long, Client> {
     {
         NodeList nodes = node.getElementsByTagName(tagName);
         Node nodeWithTextContent = nodes.item(0);
+        System.out.println(nodeWithTextContent);
+        System.out.println("aici");
         String textContent = nodeWithTextContent.getTextContent();
+        System.out.println(textContent);
         return textContent;
     }
 

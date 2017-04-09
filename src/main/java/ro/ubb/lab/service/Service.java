@@ -34,7 +34,7 @@ public class Service {
      * @param movie
      *            must not be null.
      * @throws ValidatorException
-     *             if the given student is not valid
+     *             if the given movie is not valid
      */
     public void addMovie(Movie movie) throws ValidatorException {
         this.movieRepo.save(movie);
@@ -42,7 +42,7 @@ public class Service {
 
     /**
      * Get all movies from repository.
-     * @return {@code Set<Student>}
+     * @return {@code Set<Movie>}
      */
     public Set<Movie> getAllMovies() {
         Iterable<Movie> movies = this.movieRepo.findAll();
@@ -145,10 +145,10 @@ public class Service {
     public void addRental(Long movieID, Long clientID)
     {
         if(!movieRepo.findOne(movieID).isPresent())
-            throw new CustomException("No student with this ID!");
+            throw new CustomException("No movie with this ID!");
 
         if(!clientRepo.findOne(clientID).isPresent())
-            throw new CustomException("No problem with this ID!");
+            throw new CustomException("No client with this ID!");
         Rental rental = new Rental(movieID, clientID);
         rentalRepo.save(rental);
 

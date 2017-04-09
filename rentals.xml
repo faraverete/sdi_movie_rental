@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<movies>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><movies>
     <rental id="1">
         <movieID>1</movieID>
         <clientID>3</clientID>
@@ -16,4 +15,4 @@
         <movieID>1</movieID>
         <clientID>2</clientID>
     </rental>
-</movies>
+<rental id="5"><movieID>1</movieID><clientID>1</clientID></rental></movies>

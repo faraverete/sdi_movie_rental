@@ -30,12 +30,12 @@ public class RentalValidator implements Validator<Rental> {
 
         if(movieID == null)
         {
-            err += "Student ID must not be null. ";
+            err += "Movie ID must not be null. ";
         }
 
         if(clientID == null)
         {
-            err += "Problem ID must not be null";
+            err += "Client ID must not be null";
         }
 
         if(id != null && id < 0)
@@ -45,12 +45,12 @@ public class RentalValidator implements Validator<Rental> {
 
         if(movieID != null && movieID < 0)
         {
-            err += "Student ID must be positive. ";
+            err += "Movie ID must be positive. ";
         }
 
         if(clientID != null && clientID < 0)
         {
-            err += "Problem ID must be positive. ";
+            err += "Client ID must be positive. ";
         }
 
 

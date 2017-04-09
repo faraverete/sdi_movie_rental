@@ -90,6 +90,10 @@ public class MovieXMLRepo extends InMemoryRepository<Long, Movie> {
     {
         NodeList nodes = node.getElementsByTagName(tagName);
         Node nodeWithTextContent = nodes.item(0);
+        if (nodeWithTextContent.getTextContent().toString()!=null) {
+            System.out.println("am ajuns aici");
+        }
+        System.out.println(nodeWithTextContent.getTextContent());
         String textContent = nodeWithTextContent.getTextContent();
         return textContent;
     }

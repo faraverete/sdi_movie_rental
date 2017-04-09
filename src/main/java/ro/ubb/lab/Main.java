@@ -12,6 +12,8 @@ import ro.ubb.lab.repository.*;
 import ro.ubb.lab.service.Service;
 import ro.ubb.lab.ui.Console;
 
+import java.sql.*;
+
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,7 +29,7 @@ public class Main {
         cmd = cmd + "\t 0) In Memory Repository.\n";
         cmd = cmd + "\t 1) File Repository.\n";
         cmd = cmd + "\t 2) XML Repository.\n";
-        // cmd = cmd + "\t 3) DB Repository.\n";
+        cmd = cmd + "\t 3) DB Repository.\n";
         System.out.println(cmd);
     }
 
@@ -84,8 +86,25 @@ public class Main {
                 xmlconsole.runConsole();
                 break;
 
+            case 3:
+                //init db repos
+
+                String url = "jdbc:postgresql://localhost:5432/movieRental";
+
+                Repository<Long, Movie> movieDBRepository =
+                        new MovieDBRepository(movieValidator, url,"postgres", "postgres");
+                Repository<Long, Client> clientDBRepository =
+                        new ClientDBRepository(clientValidator, url, "postgres", "postgres");
+                Repository<Long, Rental> rentalDBRepository =
+                        new RentalDBRepository(rentalValidator, url, "postgres", "postgres");
+
+                Service service = new Service(movieDBRepository, clientDBRepository, rentalDBRepository);
+                Console dbconsole = new Console(service);
+                dbconsole.runConsole();
+                break;
             default:
                 System.out.println("Invalid command.");
+
         }
     }
 }

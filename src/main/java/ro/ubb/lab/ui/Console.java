@@ -295,8 +295,8 @@ public class Console {
 
     private void printAllRentals()
     {
-        Set<Rental> idsOfStudentsAndProblems = service.getAllRentals();
-        idsOfStudentsAndProblems.stream().forEach(System.out::println);
+        Set<Rental> idsOfRentals = service.getAllRentals();
+        idsOfRentals.stream().forEach(System.out::println);
     }
 
 

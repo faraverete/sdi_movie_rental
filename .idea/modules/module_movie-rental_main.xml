@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_movie-rental_main" default="compile.module.movie-rental_main">
+  <dirname property="module.movie-rental_main.basedir" file="${ant.file.module_movie-rental_main}"/>
+  
+  <property name="module.jdk.home.movie-rental_main" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.movie-rental_main" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.movie-rental_main" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.movie-rental_main" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="movie-rental_main.output.dir" value="${module.movie-rental_main.basedir}/../../build/classes/main"/>
+  <property name="movie-rental_main.testoutput.dir" value="${module.movie-rental_main.basedir}/../../build/classes/main"/>
+  
+  <path id="movie-rental_main.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="movie-rental_main.module.production.classpath">
+    <path refid="${module.jdk.classpath.movie-rental_main}"/>
+  </path>
+  
+  <path id="movie-rental_main.runtime.production.module.classpath">
+    <pathelement location="${movie-rental_main.output.dir}"/>
+  </path>
+  
+  <path id="movie-rental_main.module.classpath">
+    <path refid="${module.jdk.classpath.movie-rental_main}"/>
+    <pathelement location="${movie-rental_main.output.dir}"/>
+  </path>
+  
+  <path id="movie-rental_main.runtime.module.classpath">
+    <pathelement location="${movie-rental_main.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.movie-rental_main">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.movie-rental_main">
+    <patternset refid="excluded.from.module.movie-rental_main"/>
+  </patternset>
+  
+  <path id="movie-rental_main.module.sourcepath">
+    <dirset dir="${module.movie-rental_main.basedir}/../../src/main">
+      <include name="java"/>
+      <include name="resources"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.movie-rental_main" depends="compile.module.movie-rental_main.production,compile.module.movie-rental_main.tests" description="Compile module movie-rental_main"/>
+  
+  <target name="compile.module.movie-rental_main.production" depends="register.custom.compilers" description="Compile module movie-rental_main; production classes">
+    <mkdir dir="${movie-rental_main.output.dir}"/>
+    <javac2 destdir="${movie-rental_main.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.movie-rental_main}/javac">
+      <compilerarg line="${compiler.args.movie-rental_main}"/>
+      <bootclasspath refid="movie-rental_main.module.bootclasspath"/>
+      <classpath refid="movie-rental_main.module.production.classpath"/>
+      <src refid="movie-rental_main.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.movie-rental_main"/>
+    </javac2>
+    
+    <copy todir="${movie-rental_main.output.dir}">
+      <fileset dir="${module.movie-rental_main.basedir}/../../src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.movie-rental_main.basedir}/../../src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.movie-rental_main.tests" depends="register.custom.compilers,compile.module.movie-rental_main.production" description="compile module movie-rental_main; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.movie-rental_main" description="cleanup module">
+    <delete dir="${movie-rental_main.output.dir}"/>
+    <delete dir="${movie-rental_main.testoutput.dir}"/>
+  </target>
+</project>
